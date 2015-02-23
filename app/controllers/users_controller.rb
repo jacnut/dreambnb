@@ -8,11 +8,11 @@ class UsersController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
-    @user.destroy
-    redirect_to root_path, notice: 'Your account has been successfully removed. We have no data about you anymore.'
+    if @user.update(user_params)
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   private
