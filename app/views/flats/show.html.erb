@@ -1,34 +1,122 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @flat.user %>
-</p>
+<div class = "container">
+  <div class="row padded">
+    <div class="col-xs-9 col-sm-8 col-sm-offset-2">
+      <div class = "row">
+        <p><strong><%= @flat.city %></strong></p>
+      </div>
 
-<p>
-  <strong>City:</strong>
-  <%= @flat.city %>
-</p>
+      <hr>
 
-<p>
-  <strong>Accomodates:</strong>
-  <%= @flat.accomodates %>
-</p>
+      <div class = "row">
+        <div class = "col-md-3">
+          Space
+        </div>
+        <div class = "col-md-9">
+          <div class = row>
+            <div class = "col-md-6">
+              <div>
+                <small class = "text-muted">Bed Type:</small>
+                <strong>Real Bed</strong>
+              </div>
+              <div>
+                <small class = "text-muted">Property Type:</small>
+                <strong>Appartment</strong>
+              </div>
+              <div>
+                <small class = "text-muted">Accomodates:</small>
+                <strong><%= @flat.accomodates %>  </strong>
+              </div>
+              <div>
+                <small class = "text-muted">Price:</small>
+                <strong><%= @flat.price %> €</strong>
+              </div>
+            </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @flat.price %>
-</p>
+            <div class = "col-md-6">
+              <div>
+                <small class = "text-muted">Bathrooms:</small>
+                <strong><%= 2 %></strong>
+              </div>
+              <div>
+                <small class = "text-muted">Check In:</small>
+                <strong><%= 11.00 %></strong>
+              </div>
+              <div>
+                <small class = "text-muted">Check Out:</small>
+                <strong><%= 13.00 %></strong>
+              </div>
 
-<p>
-  <strong>Has ac:</strong>
-  <%= @flat.has_AC %>
-</p>
+              <div>
+                <small class = "text-muted">Host:</small>
+                <strong><%= @flat.user.email %></strong>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>Has jacuzzi:</strong>
-  <%= @flat.has_jacuzzi %>
-</p>
+      <hr>
 
+
+      <div class = "row">
+        <div class = "col-md-3">
+          Amenities
+        </div>
+        <div class = "col-md-9">
+          <div class = row>
+            <div class = "col-md-6">
+              <div>
+                <small class = "text-muted">Air-Conditing:</small>
+                <strong><%= @flat.has_AC ? "Yes" : "No" %></strong>
+              </div>
+              <div>
+                <small class = "text-muted">Jacuzzi:</small>
+                <strong><%= @flat.has_jacuzzi ? "Yes" : "No" %></strong>
+              </div>
+              <div>
+                <small class = "text-muted">Kitchen:</small>
+                <strong>Yes</strong>
+              </div>
+              <div>
+                <small class = "text-muted">Wifi:</small>
+                <strong>Yes</strong>
+              </div>
+            </div>
+
+            <div class = "col-md-6">
+              <div>
+                <small class = "text-muted">Heating:</small>
+                <strong>Yes</strong>
+              </div>
+              <div>
+                <small class = "text-muted">Breakfas:</small>
+                <strong>No</strong>
+              </div>
+              <div>
+                <small class = "text-muted">Free Parking</small>
+                <strong>Yes</strong>
+              </div>
+
+              <div>
+                <small class = "text-muted">Sheets:</small>
+                <strong>Yes</strong>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Destroy', flat_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_flat_path(@flat) %> |
 <%= link_to 'Back', flats_path %>

@@ -5,7 +5,19 @@
     <%= f.association :user %>
     <%= f.input :city %>
     <%= f.input :accomodates %>
-    <%= f.input :price %>
+
+<div class="form-inline">
+  <div class="form-group">
+    <label class="sr-only">Amount (in Euros)</label>
+    <div class="input-group">
+      <div class="input-group-addon">€</div>
+    <div><%= f.input :price %></div>
+    </div>
+  </div>
+</div>
+
+
+
     <%= f.input :has_AC %>
     <%= f.input :has_jacuzzi %>
   </div>
@@ -14,3 +26,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
