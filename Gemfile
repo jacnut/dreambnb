@@ -11,6 +11,10 @@ ruby '2.2.0'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 
+gem 'figaro'
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
