@@ -4,3 +4,26 @@
  * Before writing in this file, look if there is not
  * already a Bootstrap SCSS variable that does the same job
  * ------------------------------------- */
+
+html,
+body {
+  margin-top:0;
+  margin-bottom:0;
+  padding-top:0;
+  padding-bottom:0;
+  height:100%;
+}
+
+#wrapper_container {
+  min-height:100%;
+  position:relative;
+  margin-top: 70px;
+}
+
+#footer_container {
+  width:100%;
+  height:100px;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
