@@ -1,37 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Flats</h1>
+<div class = "row padded">
+  <div class="col-xs-12 col-md-6 text-center">
+    <h1 class= "pullUp">Listing Flats</h1>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>City</th>
-      <th>Accomodates</th>
-      <th>Price</th>
-      <th>Has ac</th>
-      <th>Has jacuzzi</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class = "row">
     <% @flats.each do |flat| %>
-      <tr>
-        <td><%= flat.user %></td>
-        <td><%= flat.city %></td>
-        <td><%= flat.accomodates %></td>
-        <td><%= flat.price %></td>
-        <td><%= flat.has_AC %></td>
-        <td><%= flat.has_jacuzzi %></td>
-        <td><%= link_to 'Show', flat %></td>
-        <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
-        <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="col-xs-6 col-sm-4 col-md-3 text-center">
+    <h5><%= flat.city %></h5>
+    <hr>
+    <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p></p>
+    <p class="text-muted small"><%= flat.price %> €/night</p>
+    <p class="text-muted small"><%= flat.has_AC ? "Air-Conditioning" : "" %>
+       <%= flat.has_jacuzzi ? "· Jacuzzi" : "" %></p>
+
+    <p><%#= flat.user.email %></p>
+    <p class="text-muted small"><%= link_to 'Show', flat %></p>
+    </div>
     <% end %>
-  </tbody>
-</table>
+
+</div>
 
 <br>
 
-<%= link_to 'New Flat', new_flat_path %>
+<%#= link_to 'New Flat', new_flat_path %>
+
