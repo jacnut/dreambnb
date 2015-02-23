@@ -5,8 +5,6 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
-gem 'devise'
-
 ruby '2.2.0'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
