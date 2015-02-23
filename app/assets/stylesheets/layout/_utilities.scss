@@ -3,6 +3,7 @@
  * These are examples of utilities classes
  * Feel free to change them and create your own
  * ------------------------------------- */
+
 .padded {
   padding-top: 8em;
   padding-bottom: 8em;
@@ -30,4 +31,10 @@
 .bg-purple {
   background: $purple;
   color: white;
+}
+
+.alert {
+  border: none;
+  font-family: 'Georgia', serif;
+  font-style: italic;
 }

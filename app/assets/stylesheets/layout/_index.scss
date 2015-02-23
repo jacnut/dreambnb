@@ -2,3 +2,25 @@
 @import "utilities";
 @import "footer";
 @import "navbar";
+
+.bg_image {
+  height: 100%;
+  background: url('/assets/welcome.jpg');
+}
+
+#welcome_container h2 {
+  color: #151515;
+  margin-bottom: 20px;
+  padding: 14px;
+}
+
+#welcome_container p {
+  color: #333;
+  font-family: 'Georgia', serif;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.intro_text {
+  margin-top: 200px;
+}
