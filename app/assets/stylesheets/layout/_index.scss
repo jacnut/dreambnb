@@ -3,24 +3,27 @@
 @import "footer";
 @import "navbar";
 
-.bg_image {
-  100%;
-  background: url('/assets/welcome.jpg');
+.bg-image {
+  background: url('/assets/welcome.png');
 }
 
-#welcome_container h2 {
+#welcome-container h2 {
   color: #151515;
   margin-bottom: 20px;
   padding: 14px;
 }
 
-#welcome_container p {
+#welcome-container p {
   color: #333;
   font-family: 'Georgia', serif;
   font-size: 18px;
   font-style: italic;
 }
 
-.intro_text {
+.intro-text {
   margin-top: 200px;
+}
+
+.container-fluid {
+  height: 100%
 }
