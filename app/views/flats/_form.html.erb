@@ -1,0 +1,16 @@
+<%= simple_form_for(@flat) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :city %>
+    <%= f.input :accomodates %>
+    <%= f.input :price %>
+    <%= f.input :has_AC %>
+    <%= f.input :has_jacuzzi %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

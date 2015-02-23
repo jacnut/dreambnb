@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @flat.user %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @flat.city %>
+</p>
+
+<p>
+  <strong>Accomodates:</strong>
+  <%= @flat.accomodates %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @flat.price %>
+</p>
+
+<p>
+  <strong>Has ac:</strong>
+  <%= @flat.has_AC %>
+</p>
+
+<p>
+  <strong>Has jacuzzi:</strong>
+  <%= @flat.has_jacuzzi %>
+</p>
+
+<%= link_to 'Edit', edit_flat_path(@flat) %> |
+<%= link_to 'Back', flats_path %>
