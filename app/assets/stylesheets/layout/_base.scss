@@ -14,23 +14,21 @@ body {
   height:100%;
 }
 
-#wrapper {
+#wrapper_container {
   min-height:100%;
   position:relative;
   margin-top: 70px;
 }
 
-#footer {
-  width:100%;
-  height:100px;
-  position:relative;
-  bottom:0;
-  left:0;
+#content_container {
+  padding-bottom: 80px;
+  //padding-left: 2em;
+  //padding-right: 2em;
 }
 
-#content {
+#footer_container {
   width:100%;
-  height:100%;
+  height:80px;
   position:absolute;
   bottom:0;
   left:0;

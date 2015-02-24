@@ -1,7 +1,7 @@
 // Your footer style
 
 footer {
-  padding:5% 0 0;
+  padding:0.5em;
   background:#151515;
   z-index: 9;
   position: relative;
@@ -12,8 +12,8 @@ footer p.m_14 {
   line-height:1.8em;
   margin-top: 2em;
 }
-footer ul.f_grid1{
-  padding:0;
+.f_grid1{
+  padding:0.5em;
   list-style:none;
 }
 footer .extra-wrap h5 {
@@ -69,7 +69,7 @@ footer .footer_lists{
 }
 footer .footer-top{
   border-bottom:1px solid #3E3E3E;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
 }
 footer .copy {
   float: left;
@@ -96,5 +96,8 @@ footer .social li a i {
   color: #999;
 }
 footer .footer_bottom {
-  padding:2em 0;
+  padding:0.5em 0;
+}
+.footer_grid{
+  padding:1em;
 }

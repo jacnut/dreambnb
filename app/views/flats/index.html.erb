@@ -1,30 +1,31 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
-<div class = "row">
-  <div class="col-xs-10 col-xs-offset-1 text-center">
-    <div class = "row">
-    <h1 class= "pullUp">Listing Flats</h1>
-    </div>
-
-
-
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <div class = "row">
-    <% @flats.each do |flat| %>
-    <div class="col-xs-12 col-sm-4 text-center">
-    <h5><%= flat.city %></h5>
-    <hr>
-    <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p></p>
-    <p class="text-muted small"><%= flat.price %> €/night</p>
-    <p class="text-muted small"><%= flat.has_AC ? "Air-Conditioning" : "" %>
-       <%= flat.has_jacuzzi ? "· Jacuzzi" : "" %></p>
+    <div class="col-xs-10 col-xs-offset-1 text-center">
+      <div class = "row">
+      <h1 class= "pullUp">Listing Flats</h1>
+      </div>
 
-    <p><%#= flat.user.email %></p>
-    <p class="text-muted small"><%= link_to 'Show', flat %></p>
+
+
+    <div class = "row">
+      <% @flats.each do |flat| %>
+      <div class="col-xs-12 col-sm-4 text-center">
+      <h5><%= flat.city %></h5>
+      <hr>
+      <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p></p>
+      <p class="text-muted small"><%= flat.price %> €/night</p>
+      <p class="text-muted small"><%= flat.has_AC ? "Air-Conditioning" : "" %>
+         <%= flat.has_jacuzzi ? "· Jacuzzi" : "" %></p>
+
+      <p><%#= flat.user.email %></p>
+      <p class="text-muted small"><%= link_to 'Show', flat %></p>
+      </div>
+      <% end %>
+
     </div>
-    <% end %>
-
   </div>
-</div>
 </div>
 </di
 <br>
