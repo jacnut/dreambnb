@@ -13,7 +13,7 @@ class FlatsController < ApplicationController
   # GET /flats/new
   def new
     @flat = Flat.new
-    @flat.flat_pics.build #line added to integrate dose form in cocktail form
+    @flat.flat_pics.build #line added to integrate flat_pic form in flat form
   end
 
   # GET /flats/1/edit
