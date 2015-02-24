@@ -11,6 +11,8 @@
         <% @flat.flat_pics.each do |flat_pic| %>
         <%= image_tag flat_pic.picture.url(:medium) %>
         <%end%>
+      </div>
+      <div class = "row">
         <%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(@flat) %>
       </div>
 
