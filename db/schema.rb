@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224103824) do
+ActiveRecord::Schema.define(version: 20150224094521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20150224103824) do
 
   create_table "flat_pics", force: :cascade do |t|
     t.string   "description"
+    t.integer  "flat_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "flat_id"
   end
 
   add_index "flat_pics", ["flat_id"], name: "index_flat_pics_on_flat_id", using: :btree
@@ -69,16 +69,16 @@ ActiveRecord::Schema.define(version: 20150224103824) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
     t.string   "name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'search/index'
+  get '/search', to: 'search#index', as: 'search'
 
   resources :bookings
 
