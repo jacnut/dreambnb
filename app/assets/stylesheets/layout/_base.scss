@@ -14,13 +14,13 @@ body {
   height:100%;
 }
 
-#wrapper_container {
+#wrapper {
   min-height:100%;
   position:relative;
   margin-top: 70px;
 }
 
-#footer_container {
+#footer {
   width:100%;
   height:100px;
   position:absolute;
@@ -28,7 +28,7 @@ body {
   left:0;
 }
 
-#content_container {
+#content {
   width:100%;
   height:100%;
   position:absolute;

@@ -6,6 +6,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 
 gem 'devise'
+gem 'omniauth-facebook'
 
 ruby '2.2.0'
 gem 'rails_12factor', group: :production
