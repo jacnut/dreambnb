@@ -4,9 +4,10 @@
 @import "navbar";
 
 .bg-image {
-  background: url('/assets/welcome.png');
+  background: url('/assets/welcome.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 650px;
 }
-
 
 #welcome-container h2 {
   color: #151515;
