@@ -3,5 +3,36 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([( name: 'Chicago' ), ( name: 'Copenhagen' )])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Flat.create(
+  city: 'Brussels',
+  accomodates: '3',
+  price: '65 EUR per night',
+  has_AC: true,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'Paris',
+  accomodates: '2',
+  price: '125 EUR per night',
+  has_AC: false,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'London',
+  accomodates: '4',
+  price: '235 EUR per night',
+  has_AC: true,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'Addis Abebea',
+  accomodates: '2',
+  price: '35 EUR per night',
+  has_AC: true,
+  has_jacuzzi: true,
+)
