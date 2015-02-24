@@ -13,8 +13,7 @@
       <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4 text-center">
       <h5><%= flat.city %></h5>
-      <p><%#= flatpic = flat.flat_pics.first %></p>
-      <p><%#= flatpic.description %></p>
+      <p><%= image_tag flat.flat_pics.first.picture.url(:medium) %></p>
       <hr>
       <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p></p>
       <p class="text-muted small"><%= flat.price %> €/night</p>

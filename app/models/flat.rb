@@ -5,4 +5,5 @@ class Flat < ActiveRecord::Base
 
   #addes to allow to integrate flat_pic form in flat form
   accepts_nested_attributes_for :flat_pics
+
 end
