@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
-
-<div class = "row padded">
-  <div class="col-xs-12 col-md-6 text-center">
-    <h1 class= "pullUp">Listing Flats</h1>
-  </div>
-</div>
-
+<div class="container">
 <div class = "row">
+  <div class="col-xs-8 col-xs-offset-2 text-center">
+    <div class = "row">
+    <h1 class= "pullUp">Listing Flats</h1>
+    </div>
+
+
+
+  <div class = "row">
     <% @flats.each do |flat| %>
-    <div class="col-xs-6 col-sm-4 col-md-3 text-center">
+    <div class="col-xs-12 col-sm-4 text-center">
     <h5><%= flat.city %></h5>
     <hr>
     <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p></p>
@@ -21,8 +23,10 @@
     </div>
     <% end %>
 
+  </div>
 </div>
-
+</div>
+</di
 <br>
 
 <%#= link_to 'New Flat', new_flat_path %>
