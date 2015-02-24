@@ -30,10 +30,10 @@ class User < ActiveRecord::Base
   end
 
   def image
-    if picture
-      return "#{picture}?type=large"
-    else
+    if avatar.file? || picture.nil?
       return avatar.url(:big)
+    else
+      return "#{picture}?type=large"
     end
   end
 
