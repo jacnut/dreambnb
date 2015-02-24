@@ -6,4 +6,5 @@ class FlatPic < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   belongs_to :flat
+
 end

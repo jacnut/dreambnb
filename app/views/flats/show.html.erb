@@ -2,13 +2,16 @@
 
 <div class = "container">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+    <div class="col-xs-10 col-xs-offset-1">
       <div class = "row">
         <p><strong><%= @flat.city %></strong></p>
       </div>
 
       <div class = "row">
-        <p><%= @flat.flat_pics.picture %></p>
+        <% @flat.flat_pics.each do |flat_pic| %>
+        <%= image_tag flat_pic.picture.url(:medium) %>
+        <%end%>
+        <%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(@flat) %>
       </div>
 
       <hr>
@@ -116,11 +119,12 @@
 
       <hr>
 
+      <%= link_to 'Destroy', flat_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'Edit', edit_flat_path(@flat) %> |
+      <%= link_to 'Back', flats_path %>
 
     </div>
   </div>
 </div>
 
-<%= link_to 'Destroy', flat_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_flat_path(@flat) %> |
-<%= link_to 'Back', flats_path %>
+

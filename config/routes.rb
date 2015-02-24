@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :flat_pics
+
 
   resources :bookings
 
-  resources :flats
+  resources :flats do
+    resources :flat_pics
+  end
 
   get 'welcome/index'
 

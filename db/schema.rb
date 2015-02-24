@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223172923) do
+ActiveRecord::Schema.define(version: 20150224103824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20150223172923) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "flat_id"
   end
+
+  add_index "flat_pics", ["flat_id"], name: "index_flat_pics_on_flat_id", using: :btree
 
   create_table "flats", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,5 +76,6 @@ ActiveRecord::Schema.define(version: 20150223172923) do
 
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
+  add_foreign_key "flat_pics", "flats"
   add_foreign_key "flats", "users"
 end
