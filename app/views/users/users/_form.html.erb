@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :first_name %>
     <%= f.input :last_name %>
+    <%= image_tag @user.image, size: "225x225", alt: @user.name %>
     <%= f.input :avatar, as: :file %>
   </div>
 
