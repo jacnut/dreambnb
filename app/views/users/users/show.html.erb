@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
+
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-      <%= image_tag @user.avatar.url(:big), size: "225x225", alt: @user.first_name + " " + @user.last_name %>
+      <%= image_tag @user.image, size: "225x225", alt: @user.name %>
       <p>email: <%= @user.email %></p>
 
       <h2>My flats</h2>
@@ -17,6 +18,7 @@
         <% end %>
       </ul>
 
+      <%= link_to "Add a flat", new_flat_path %>
 
       <h2>My Visits</h2>
       <ul>

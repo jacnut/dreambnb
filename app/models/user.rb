@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :bookings
 
   has_attached_file :avatar,
-    styles: { big: "600x600#", medium: "300x300#", thumb: "100x100#" }
+    styles: { big: "600x600#", medium: "300x300#", thumb: "100x100#" },
+    :default_url => "default_user_picture.svg"
 
   validates_attachment_content_type :avatar,
     content_type: /\Aimage\/.*\z/
@@ -21,9 +22,19 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.name = auth.info.name
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
       user.picture = auth.info.image
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
+    end
+  end
+
+  def image
+    if picture
+      return "#{picture}?type=large"
+    else
+      return avatar.url(:big)
     end
   end
 
