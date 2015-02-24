@@ -1,20 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
 
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<p>email: <%= @user.email %></p>
+      <%= image_tag @user.image, size: "225x225", alt: @user.name %>
+      <p>email: <%= @user.email %></p>
 
-<h2>My flats</h2>
-<% @user.flats.each do |flat| %>
-  <p>My flat in <%= flat.city %></p>
-<% end %>
+      <h2>My flats</h2>
+      <ul>
+        <% @user.flats.each do |flat| %>
+          <li>
+            <%= link_to flat_path(flat) do %>
+              My flat in <%= flat.city %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
 
+      <%= link_to "Add a flat", new_flat_path %>
 
-<h2>My Visits</h2>
-<% @user.bookings.each do |booking| %>
-  <p>I went to <%= booking.flat.city %></p>
-<% end %>
+      <h2>My Visits</h2>
+      <ul>
+        <% @user.bookings.each do |booking| %>
+          <li>
+            <%= link_to flat_path(booking.flat) do %>
+              I went to <%= booking.flat.city %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
 
-<%= link_to "Edit profile", edit_user_path %>|
-<%= link_to "Edit my account settings", edit_user_registration_path(@user) %>
+      <%= link_to "Edit profile", edit_user_path %>|
+      <%= link_to "Edit my account settings", edit_user_registration_path(@user) %>
+    </div>
+  </div>
+</div>
