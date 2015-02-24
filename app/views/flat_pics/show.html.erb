@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @flat_pic.description %>
+</p>
+
+<p>
+  <strong>Flat:</strong>
+  <%= @flat_pic.flat %>
+</p>
+
+<%= link_to 'Edit', edit_flat_pic_path(@flat_pic) %> |
+<%= link_to 'Back', flat_pics_path %>

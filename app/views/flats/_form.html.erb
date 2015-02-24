@@ -16,11 +16,17 @@
   </div>
 </div>
 
-
-
     <%= f.input :has_AC %>
     <%= f.input :has_jacuzzi %>
   </div>
+
+  <!-- This integrates the create dose form into the cocktail create form -->
+    <%= f.simple_fields_for :flat_pics do |ff| %>
+      <div class="form-inputs">
+        <%= ff.input :picture, as: :file %>
+      </div>
+    <% end %>
+<!-- Also need to modify the cocktail model & controller new and params -->
 
   <div class="form-actions">
     <%= f.button :submit %>

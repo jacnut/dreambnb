@@ -1,0 +1,2 @@
+module FlatPicsHelper
+end

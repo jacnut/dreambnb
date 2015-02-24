@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :flat_pics
+
   resources :bookings
 
   resources :flats
