@@ -18,6 +18,20 @@
 
     <%= f.input :has_AC %>
     <%= f.input :has_jacuzzi %>
+
+
+<!-- This integrates the create flat_pic form into the flat create form -->
+    <%= f.simple_fields_for :flat_pics do |ff| %>
+      <div class="form-inputs">
+        <%= ff.input :description %>
+        <%= ff.input :picture, as: :file %>
+      </div>
+    <% end %>
+<!-- Also modified the flat model & controller new and params -->
+
+
+
+
   </div>
 
 

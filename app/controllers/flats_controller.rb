@@ -13,6 +13,7 @@ class FlatsController < ApplicationController
   # GET /flats/new
   def new
     @flat = Flat.new
+    @flat.flat_pics.build #line added to integrate dose form in cocktail form
   end
 
   # GET /flats/1/edit
@@ -53,6 +54,6 @@ class FlatsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def flat_params
-      params.require(:flat).permit(:user_id, :city, :accomodates, :price, :has_AC, :has_jacuzzi, :picture)
+      params.require(:flat).permit(:user_id, :city, :accomodates, :price, :has_AC, :has_jacuzzi, flat_pics_attributes:[:description, :picture])
     end
 end
