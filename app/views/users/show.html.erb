@@ -3,7 +3,7 @@
     <div class="col-lg-8 col-lg-offset-2">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-      <%= image_tag @user.avatar.url(:medium) %>
+      <%= image_tag @user.avatar.url(:big), size: "225x225", alt: @user.first_name + " " + @user.last_name %>
       <p>email: <%= @user.email %></p>
 
       <h2>My flats</h2>
