@@ -12,10 +12,12 @@
     <div class = "row">
       <% @flats.each do |flat| %>
       <div class="col-xs-12 col-sm-4 text-center">
-      <h5><%= flat.city %></h5>
+
+      <h5><%= flat.name %></h5>
       <p><%= image_tag flat.flat_pics.first.picture.url(:medium) %></p>
       <hr>
-      <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p></p>
+      <p class="text-muted small"><%= flat.city %></p>
+      <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p>
       <p class="text-muted small"><%= flat.price %> €/night</p>
       <p class="text-muted small"><%= flat.has_AC ? "Air-Conditioning" : "" %>
          <%= flat.has_jacuzzi ? "· Jacuzzi" : "" %></p>
