@@ -1,3 +1,7 @@
+<div class="show-image-container">
+<div class="show-cover-img"><%= image_tag @flat.flat_pics.first.picture.url(:large) %>
+</div>
+</div>
 <div class = "container padded">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
@@ -6,11 +10,7 @@
       <div class = "row">
         <p><strong><%= @flat.name %></strong></p>
       </div>
-      <div class = "row">
-        <% @flat.flat_pics.each do |flat_pic| %>
-        <%= image_tag flat_pic.picture.url(:medium) %>
-        <%end%>
-      </div>
+
       <div class = "row">
       </div>
       <hr>
@@ -124,9 +124,13 @@
         </div>
       </div>
 
+      <hr>
 
-
-
+      <div class = "row">
+        <% @flat.flat_pics.each do |flat_pic| %>
+        <%= image_tag flat_pic.picture.url(:medium) %>
+        <%end%>
+      </div>
 
       <hr>
       <%= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
