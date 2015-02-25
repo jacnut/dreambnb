@@ -4,7 +4,7 @@
 @import "navbar";
 
 .bg-image {
-  background: url('/assets/welcome.jpg') no-repeat center center fixed;
+  background: url(image_path('welcome.jpg')) no-repeat center center fixed;
   background-size: cover;
   height: 650px;
 }
@@ -24,6 +24,8 @@
 
 .intro-text {
   margin-top: 200px;
+  color: #ffffff;
+  text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 .container-fluid {

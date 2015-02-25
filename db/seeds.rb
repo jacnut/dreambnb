@@ -36,3 +36,67 @@ Flat.create(
   has_AC: true,
   has_jacuzzi: true,
 )
+
+Flat.create(
+  city: 'Brussels',
+  accomodates: '2',
+  price: '95 EUR per night',
+  has_AC: false,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'Paris',
+  accomodates: '3',
+  price: '105 EUR per night',
+  has_AC: false,
+  has_jacuzzi: true,
+)
+
+Flat.create(
+  city: 'London',
+  accomodates: '8',
+  price: '760 EUR per night',
+  has_AC: true,
+  has_jacuzzi: true,
+)
+
+Flat.create(
+  city: 'Addis Abebea',
+  accomodates: '4',
+  price: '95 EUR per night',
+  has_AC: false,
+  has_jacuzzi: true,
+)
+
+Flat.create(
+  city: 'Brussels',
+  accomodates: '4',
+  price: '105 EUR per night',
+  has_AC: false,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'Brussels',
+  accomodates: '2',
+  price: '125 EUR per night',
+  has_AC: false,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'London',
+  accomodates: '1',
+  price: '65 EUR per night',
+  has_AC: false,
+  has_jacuzzi: false,
+)
+
+Flat.create(
+  city: 'Addis Abebea',
+  accomodates: '2',
+  price: '75 EUR per night',
+  has_AC: false,
+  has_jacuzzi: true,
+)
