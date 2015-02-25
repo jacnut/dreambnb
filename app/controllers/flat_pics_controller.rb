@@ -1,6 +1,7 @@
 class FlatPicsController < ApplicationController
   before_action :find_flat
   before_action :set_flat_pic, only: [:show, :edit, :update, :destroy]
+  before_action :current_user?
 
   # GET /flat_pics
   def index
@@ -61,5 +62,11 @@ class FlatPicsController < ApplicationController
 
     def find_flat
       @flat = Flat.find(params[:flat_id])
+    end
+
+    def current_user?
+      if current_user != @flat.user
+        not_found
+      end
     end
 end

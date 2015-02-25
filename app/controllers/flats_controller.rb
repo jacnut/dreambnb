@@ -1,5 +1,7 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :current_user?, only: [:edit, :update, :destroy]
 
   # GET /flats
   def index
@@ -13,17 +15,21 @@ class FlatsController < ApplicationController
   # GET /flats/new
   def new
     @flat = Flat.new
-    @flat.flat_pics.build #line added to integrate flat_pic form in flat form
+    @flat.flat_pics.build
+     #line added to integrate flat_pic form in flat form
   end
 
   # GET /flats/1/edit
   def edit
+    #set the user as current user so that I can remove it from the form
+    @flat.user = current_user
   end
 
   # POST /flats
   def create
     @flat = Flat.new(flat_params)
-
+    #set the user as current user so that I can remove it from the form
+    @flat.user = current_user
     if @flat.save
       redirect_to @flat, notice: 'Flat was successfully created.'
     else
@@ -55,5 +61,11 @@ class FlatsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def flat_params
       params.require(:flat).permit(:name, :description, :user_id, :city, :accomodates, :price, :has_AC, :has_jacuzzi, flat_pics_attributes:[:description, :picture])
+    end
+
+    def current_user?
+        if current_user != @flat.user
+          not_found
+      end
     end
 end

@@ -1,3 +1,7 @@
+<div class="show-image-container">
+<div class="show-cover-img"><%= image_tag @flat.flat_pics.first.picture.url(:large) %>
+</div>
+</div>
 <div class = "container padded">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
@@ -6,13 +10,8 @@
       <div class = "row">
         <p><strong><%= @flat.name %></strong></p>
       </div>
+
       <div class = "row">
-        <% @flat.flat_pics.each do |flat_pic| %>
-        <%= image_tag flat_pic.picture.url(:medium) %>
-        <%end%>
-      </div>
-      <div class = "row">
-        <%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(@flat) %>
       </div>
       <hr>
       <div class = "row">
@@ -126,10 +125,16 @@
       </div>
 
       <hr>
+
+      <div class = "row">
+        <% @flat.flat_pics.each do |flat_pic| %>
+        <%= image_tag flat_pic.picture.url(:medium) %>
+        <%end%>
+      </div>
+
+      <hr>
       <%= link_to 'Book Now', new_booking_path( :user_id => @flat.user_id, :flat_id => @flat.id ) %> |
-      <%= link_to 'Destroy', flat_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <%= link_to 'Edit', edit_flat_path(@flat) %> |
-      <%= link_to 'Back', flats_path %>
+      <%= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
     </div>
   </div>
 </div>

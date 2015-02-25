@@ -6,7 +6,11 @@
 .bg-image {
   background: url(image_path('welcome.jpg')) no-repeat center center fixed;
   background-size: cover;
-  height: 650px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #welcome-container h2 {

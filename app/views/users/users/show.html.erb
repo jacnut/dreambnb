@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container padded">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
 
@@ -7,17 +7,26 @@
       <%= image_tag @user.image, size: "225x225", alt: @user.name %>
 
       <h2>My flats</h2>
-      <ul>
+      <table class="table">
+        <tr>
+        <th>Flat</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Destroy</th>
+        <th class="text-center">Edit Pics</th>
+          </tr>
         <% @user.flats.each do |flat| %>
-          <li>
-            <%= link_to flat_path(flat) do %>
-              My flat in <%= flat.city %>
-            <% end %>
-          </li>
+          <tr>
+            <td><%= link_to flat_path(flat) do %>
+              <%= flat.name %> | <%= flat.city %>
+            <% end %></td>
+            <td class="text-center"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_flat_path(flat) %></td>
+            <td class="text-center"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="text-center"><%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(flat) %></td>
+          </tr>
         <% end %>
-      </ul>
+      </table>
 
-      <%= link_to "Add a flat", new_flat_path %>
+      <%= link_to "Add a flat", new_flat_path, {class: "btn btn-primary"} %>
 
       <h2>My Visits</h2>
       <ul>
@@ -30,8 +39,8 @@
         <% end %>
       </ul>
 
-      <%= link_to "Edit profile", edit_user_path %>|
-      <%= link_to "Edit my account settings", edit_user_registration_path(@user) %>
+      <%= link_to "Edit profile", edit_user_path, {class: "btn btn-primary"} %>
+      <%= link_to "Edit my account settings", edit_user_registration_path(@user), {class: "btn btn-primary"} %>
     </div>
   </div>
 </div>

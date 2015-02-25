@@ -2,7 +2,6 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :city %>
@@ -26,7 +25,9 @@
 
   </div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, {class: "btn btn-primary"} %>
+    <%= link_to 'Delete Flat', flat_path(@flat), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
   </div>
+  <br>
 <% end %>
 
