@@ -1,7 +1,9 @@
 class Flat < ActiveRecord::Base
   has_many :bookings
   belongs_to :user
-  has_many :flat_pics
+  has_many :flat_pics, dependent: :destroy
+
+  validates :name, :city, :price, :flat_pics, presence: true
 
   #addes to allow to integrate flat_pic form in flat form
   accepts_nested_attributes_for :flat_pics
