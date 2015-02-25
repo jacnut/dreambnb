@@ -1,7 +1,7 @@
 class FlatPicsController < ApplicationController
   before_action :find_flat
   before_action :set_flat_pic, only: [:show, :edit, :update, :destroy]
-  before_action :current_user?, only: [:index, :show, :edit, :update, :destroy]
+  before_action :current_user?
 
   # GET /flat_pics
   def index
