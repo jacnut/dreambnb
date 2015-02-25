@@ -12,7 +12,6 @@
         <%end%>
       </div>
       <div class = "row">
-        <%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(@flat) %>
       </div>
       <hr>
       <div class = "row">
@@ -130,9 +129,7 @@
 
 
       <hr>
-      <%= link_to 'Destroy', flat_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <%= link_to 'Edit', edit_flat_path(@flat) %> |
-      <%= link_to 'Back', flats_path %>
+      <%= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
     </div>
   </div>
 </div>
