@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-      user.picture = "#{auth.info.image}?type=large"
+      user.picture = auth.info.image
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
@@ -33,7 +33,15 @@ class User < ActiveRecord::Base
     if avatar.file? || picture.nil?
       return avatar.url(:big)
     else
-      return picture
+      return "#{picture}?type=large"
+    end
+  end
+
+  def mini_pic
+    if avatar.file? || picture.nil?
+      return avatar.url(:thumb)
+    else
+      return "#{picture}?type=square"
     end
   end
 

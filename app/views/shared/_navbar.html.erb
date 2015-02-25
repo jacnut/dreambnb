@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-wagon" role="navigation">
+<nav class="navbar navbar-default navbar-wagon" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -19,7 +19,7 @@
           <% if user_signed_in? %>
             <li class="dropdown">
               <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-                <%= image_tag current_user.image, class: "img-avatar" %>
+                <%= image_tag current_user.mini_pic, class: "img-avatar" %>
                 <%= "#{current_user.first_name || current_user.email}" %><span class="caret"></span>
               <% end %>
 
@@ -42,7 +42,7 @@
               </ul>
             </li>
             <!-- <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete' %></li> -->
-            <li><%= link_to "Add flat", "/flats/new" %></li>
+            <li><%= link_to "Add flat", new_flat_path, {class: "btn"} %></li>
           <% else %>
           <!-- some modal code here, not used but for future purposes eventually ... -->
             <li><%= link_to 'Sign up', new_user_registration_path, "data-toggle" => "modal" %></li>
