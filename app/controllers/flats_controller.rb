@@ -15,7 +15,8 @@ class FlatsController < ApplicationController
   # GET /flats/new
   def new
     @flat = Flat.new
-    @flat.flat_pics.build #line added to integrate flat_pic form in flat form
+    @flat.flat_pics.build
+     #line added to integrate flat_pic form in flat form
   end
 
   # GET /flats/1/edit
@@ -25,7 +26,7 @@ class FlatsController < ApplicationController
   # POST /flats
   def create
     @flat = Flat.new(flat_params)
-
+    @flat.user = current_user
     if @flat.save
       redirect_to @flat, notice: 'Flat was successfully created.'
     else
