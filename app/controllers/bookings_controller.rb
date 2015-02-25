@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     @booking.flat = Flat.find(params[:flat_id])
 
     if @booking.save
-      redirect_to @booking, notice: 'Your booking at ' + @flat.first.name + ' was successfully created.'
+      redirect_to @booking, notice: 'Dear ' + @booking.user.first_name + ', your booking at ' + @flat.first.name + ' was successfully created.'
     else
       render :new
     end
