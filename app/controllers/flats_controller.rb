@@ -1,5 +1,7 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
+  before_action :current_user?, only: [:edit, :update, :destroy]
 
   # GET /flats
   def index
@@ -55,5 +57,11 @@ class FlatsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def flat_params
       params.require(:flat).permit(:name, :description, :user_id, :city, :accomodates, :price, :has_AC, :has_jacuzzi, flat_pics_attributes:[:description, :picture])
+    end
+
+    def current_user?
+        if current_user != @flat.user
+          not_found
+      end
     end
 end

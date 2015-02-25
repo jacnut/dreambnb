@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container padded">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2">
 
@@ -7,15 +7,23 @@
       <%= image_tag @user.image, size: "225x225", alt: @user.name %>
 
       <h2>My flats</h2>
-      <ul>
+      <table class="table">
+        <tr>
+        <th>Flat</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+          </tr>
         <% @user.flats.each do |flat| %>
-          <li>
-            <%= link_to flat_path(flat) do %>
-              My flat in <%= flat.city %>
-            <% end %>
-          </li>
+          <tr>
+            <td><%= link_to flat_path(flat) do %>
+              <%= flat.name %> | <%= flat.city %>
+            <% end %></td>
+            <td><%= link_to "Edit", edit_flat_path(flat) %></td>
+            <td><%= link_to 'Destroy', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(flat) %></td>
+          </tr>
         <% end %>
-      </ul>
+      </table>
 
       <%= link_to "Add a flat", new_flat_path %>
 
