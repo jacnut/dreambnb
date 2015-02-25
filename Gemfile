@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-datepicker-rails'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

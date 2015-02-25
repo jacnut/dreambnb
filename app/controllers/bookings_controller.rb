@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_flat
 
   # GET /bookings
   def index
@@ -22,9 +23,11 @@ class BookingsController < ApplicationController
   # POST /bookings
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.flat = Flat.find(params[:flat_id])
 
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to @booking, notice: 'Dear ' + @booking.user.first_name + ', your booking at ' + @flat.first.name + ' was successfully created.'
     else
       render :new
     end
@@ -51,8 +54,13 @@ class BookingsController < ApplicationController
       @booking = Booking.find(params[:id])
     end
 
+    def set_user_flat
+      @user = User.where(id: params[:user_id])
+      @flat = Flat.where(id: params[:flat_id])
+    end
+
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:booking).permit(:flat_id, :user_id, :start_date, :end_date)
+      params.require(:booking).permit(:start_date, :end_date, :user_id, :flat_id)
     end
 end
