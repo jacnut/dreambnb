@@ -10,6 +10,7 @@
       <table class="table">
         <tr>
         <th>Flat</th>
+        <th>City</th>
         <th class="text-center">Edit</th>
         <th class="text-center">Destroy</th>
         <th class="text-center">Edit Pics</th>
@@ -17,8 +18,13 @@
         <% @user.flats.each do |flat| %>
           <tr>
             <td><%= link_to flat_path(flat) do %>
-              <%= flat.name %> | <%= flat.city %>
+              <%= flat.name %>
             <% end %></td>
+            <td>
+              <%= link_to flat_path(flat) do %>
+                <%= flat.city %>
+              <% end %>
+            </td>
             <td class="text-center"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_flat_path(flat) %></td>
             <td class="text-center"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <td class="text-center"><%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(flat) %></td>
