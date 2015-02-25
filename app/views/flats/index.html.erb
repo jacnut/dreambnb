@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container padded">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <div class = "row">
@@ -6,31 +6,32 @@
       <div class = "row">
       <h1 class= "pullUp">Listing Flats</h1>
       </div>
+    </div>
+  </div>
+</div>
 
 
 
-    <div class = "row">
+    <div class = "container">
+       <div class="row">
       <% @flats.each do |flat| %>
+
       <div class="col-xs-12 col-sm-4 text-center">
 
       <h5><%= flat.name %></h5>
-      <p><%= image_tag flat.flat_pics.first.picture.url(:medium) %></p>
+      <%= image_tag flat.flat_pics.first.picture.url(:medium) %>
       <hr>
       <p class="text-muted small"><%= flat.city %></p>
       <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p>
       <p class="text-muted small"><%= flat.price %> €/night</p>
-      <p class="text-muted small"><%= flat.has_AC ? "Air-Conditioning" : "" %>
-         <%= flat.has_jacuzzi ? "· Jacuzzi" : "" %></p>
 
-      <p><%#= flat.user.email %></p>
       <p class="text-muted small"><%= link_to 'Show', flat %></p>
       </div>
       <% end %>
-
+      </div>
     </div>
-  </div>
-</div>
-</di
+
+
 <br>
 
 <%#= link_to 'New Flat', new_flat_path %>
