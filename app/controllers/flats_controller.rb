@@ -15,9 +15,8 @@ class FlatsController < ApplicationController
   end
 
   def search
-    @flats = Flat.where(city: params[:city].capitalize)
-    # @flats = Flat.near(params[:city], 10) # to improve when geocoder works
-
+    # @flats = Flat.where(city: params[:city].capitalize)
+    @flats = Flat.near(params[:address], 10) # to improve when geocoder works
 
     @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
