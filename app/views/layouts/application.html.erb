@@ -29,11 +29,22 @@
       <%= render "shared/footer" %>
     </div>
   </div>
+<!--
+    You need to include this script on any page that has a Google Map.
+    When using Google Maps on your own site you MUST signup for your own API key at:
+        https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+    After your sign up replace the key in the URL below or paste in the new script tag that Google provides.
+-->
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBIgBZYtIm36frHrldqoUmgKw1aLbTMOIQ&sensor=false" %>
+<%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
+<%= javascript_include_tag "application" %>
 
 
-  <!-- Include Google Maps JS API -->
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAUKgarlzxX_oQdfQMrLjzEhSeyRegACUM" %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<%= yield(:after_js) %>
+</body>
+>>>>>>> master
 
 </body>
 </html>
