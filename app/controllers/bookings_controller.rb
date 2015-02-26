@@ -22,15 +22,21 @@ class BookingsController < ApplicationController
 
   # POST /bookings
   def create
-    @booking = Booking.new(booking_params)
+    #Need to convert the two dates into Ruby dates
+    start_date = DateTime.strptime(booking_params[:start_date], '%d/%m/%Y')
+    end_date = DateTime.strptime(booking_params[:end_date], '%d/%m/%Y')
+    @booking = Booking.new(start_date:start_date, end_date:end_date, user_id:booking_params[:user_id], flat_id:booking_params[:flat_id])
     @booking.user = current_user
-    @booking.flat = Flat.find(params[:flat_id])
+    @booking.flat = Flat.find(booking_params[:flat_id])
 
-    if @booking.save
+    if Booking.booked?(booking_params[:flat_id], start_date, end_date)
+      redirect_to new_booking_path(flat_id: booking_params[:flat_id]), notice: 'Sorry your venue is already booked at these dates'
+    elsif @booking.save
       redirect_to @booking, notice: 'Dear ' + @booking.user.email + ', your booking at ' + @booking.flat.name + ' was successfully created.'
       UserMailer.booking(@booking.user, @booking.flat, @booking.start_date, @booking.end_date).deliver
     else
-      render :new
+      redirect_to new_booking_path(flat_id: booking_params[:flat_id]), notice: 'STOP living in the past, dates in the futur only please'
+      #need to redirect (and not render) take the id of the flat)
     end
   end
 

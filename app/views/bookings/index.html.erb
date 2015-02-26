@@ -1,33 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+  <div class="row padded">
+    <div class="col-xs-10 col-xs-offset-1">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <div class = "row">
 
-<h1>Listing Bookings</h1>
+          <h1>Listing Bookings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Flat</th>
-      <th>User</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <table class = "table">
+            <thead>
+              <tr>
+                <th>Flat</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.flat %></td>
-        <td><%= booking.user %></td>
-        <td><%= booking.start_date %></td>
-        <td><%= booking.end_date %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <tbody>
+              <% @bookings.each do |booking| %>
+                <tr>
+                  <td><%= booking.flat.name %></td>
+                  <td><%= booking.start_date %></td>
+                  <td><%= booking.end_date %></td>
+                  <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, booking %></td>
+                  <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_booking_path(booking) %></td>
+                  <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
 
-<br>
+          <br>
 
-<%= link_to 'New Booking', new_booking_path %>
+          <%= link_to 'New Booking', flats_path, {class: "btn btn-primary"} %>
+      </div>
+    </div>
+  </div>
+</div>
