@@ -16,6 +16,7 @@ class FlatsController < ApplicationController
 
   def search
     @flats = Flat.where(city: params[:city].capitalize)
+    # @flats = Flat.near(params[:city], 10) # to improve when geocoder works
     render "index"
   end
 
