@@ -19,26 +19,26 @@
 
 
 //Calendar dates for booking
-  $(function() {
-    $( "#booking_start_date" ).datepicker({
-      dateFormat: "dd/mm/yy",
-      minDate: 0,
-      defaultDate: 0,
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#booking_end_date" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-    $( "#booking_end_date" ).datepicker({
-      dateFormat: "dd/mm/yy",
-      defaultDate: +1,
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#booking_start_date" ).datepicker( "option", "maxDate", selectedDate );
-      }
-    });
-  });
+  // $(function() {
+  //   $( "#booking_start_date" ).datepicker({
+  //     dateFormat: "dd/mm/yy",
+  //     minDate: 0,
+  //     defaultDate: 0,
+  //     changeMonth: true,
+  //     numberOfMonths: 1,
+  //     onClose: function( selectedDate ) {
+  //       $( "#booking_end_date" ).datepicker( "option", "minDate", selectedDate );
+  //     }
+  //   });
+  //   $( "#booking_end_date" ).datepicker({
+  //     dateFormat: "dd/mm/yy",
+  //     defaultDate: +1,
+  //     changeMonth: true,
+  //     numberOfMonths: 1,
+  //     onClose: function( selectedDate ) {
+  //       $( "#booking_start_date" ).datepicker( "option", "maxDate", selectedDate );
+  //     }
+  //   });
+  // });
 
 //end calendar dates for booking
