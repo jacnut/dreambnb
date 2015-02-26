@@ -7,6 +7,8 @@ class UserMailer < ApplicationMailer
   #
   def welcome(user)
     @user = user  # Instance variable => available in view
+    @url  = "http://localhost:3000/users/#{user.id}/"
+    attachments.inline['dreambnb-logo.svg'] = File.read('app/assets/images/dreambnb-logo.svg')
     mail(to: @user.email, subject: 'Welcome to DreamBnb')
     # This will render a view in `app/views/user_mailer`!
   end
@@ -16,7 +18,8 @@ class UserMailer < ApplicationMailer
     @flat = flat
     @start_date = start_date
     @end_date = end_date
-
+    @url  = 'http://localhost:3000/users/#{user.id}/'
+    attachments.inline['dreambnb-logo.svg'] = File.read('app/assets/images/dreambnb-logo.svg')
     mail(to: @user.email, subject: 'Confirmation of your booking')
   end
 end
