@@ -3,10 +3,13 @@ class Flat < ActiveRecord::Base
   belongs_to :user
   has_many :flat_pics, dependent: :destroy
 
-  validates :user, :name, :city, :price, :flat_pics, presence: true
+  validates :user, :name, :city, :price, :flat_pics, :address, presence: true
 
   #addes to allow to integrate flat_pic form in flat form
   accepts_nested_attributes_for :flat_pics
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
 
   def user_bg

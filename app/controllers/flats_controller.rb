@@ -60,7 +60,7 @@ class FlatsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def flat_params
-      params.require(:flat).permit(:name, :description, :user_id, :city, :accomodates, :price, :has_AC, :has_jacuzzi, flat_pics_attributes:[:description, :picture])
+      params.require(:flat).permit(:address, :name, :description, :user_id, :city, :accomodates, :price, :has_AC, :has_jacuzzi, flat_pics_attributes:[:description, :picture])
     end
 
     def current_user?
