@@ -1,11 +1,16 @@
 class FlatsController < ApplicationController
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: [:show, :index, :search]
   before_action :current_user?, only: [:edit, :update, :destroy]
 
   # GET /flats
   def index
     @flats = Flat.all
+  end
+
+  def search
+    @flats = Flat.where(city: params[:city].capitalize)
+    render "index"
   end
 
   # GET /flats/1
