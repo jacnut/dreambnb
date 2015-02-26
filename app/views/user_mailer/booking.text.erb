@@ -1,3 +1,8 @@
-Hi @user.email,
+Hi, <%= @user.email %>
+You have successfully booked <%= @flat.name %>
+from: <%= @start_date %>
+to: <%= @end_date %>.
 
-This emails confirms your booking @ ...
+You can see your bookings at your profile page: <%= link_to('click here', @url) %>.
+
+Thanks for your trust in our services and have a great day!

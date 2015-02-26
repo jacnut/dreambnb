@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
+
+gem "gmaps4rails"
+
+gem "rails-assets-underscore"
+
+gem 'seed_dump'
 
 gem "geocoder"
 
 gem "letter_opener", group: :development
-
-# gem 'bootstrap-datepicker-rails'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'

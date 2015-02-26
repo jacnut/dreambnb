@@ -6,15 +6,34 @@ class FlatsController < ApplicationController
   # GET /flats
   def index
     @flats = Flat.all
+
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
   end
 
   def search
     @flats = Flat.where(city: params[:city].capitalize)
+    # @flats = Flat.near(params[:city], 10) # to improve when geocoder works
+
+
+    @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
     render "index"
   end
 
   # GET /flats/1
   def show
+        # Let's DYNAMICALLY build the markers for the view.
+    @marker = Gmaps4rails.build_markers(@flat) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+    end
+
   end
 
   # GET /flats/new

@@ -129,6 +129,11 @@
 
       <hr>
 
+      <%= link_to 'Book Now', new_booking_path( :user_id => @flat.user_id, :flat_id => @flat.id ), class: "btn btn-primary" %>
+      <%#= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
+
+      <hr>
+
       <div class="row">
         <% @flat.flat_pics.each do |flat_pic| %>
           <div class="col-lg-4 col-md-6">
@@ -139,9 +144,28 @@
         <%end%>
       </div>
 
+
       <hr>
       <%= link_to 'Book Now', new_booking_path(user_id: @flat.user_id, flat_id: @flat.id), class: "btn btn-primary" %>
       <%#= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
+
     </div>
   </div>
 </div>
+
+<div id="map" class="flat-map"></div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(window).on('load', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: { scrollwheel: false }, internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @marker.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(16);
+      });
+    });
+  <% end %>
+<% end %>
