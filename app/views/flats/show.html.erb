@@ -140,7 +140,7 @@
       </div>
 
       <hr>
-      <%= link_to 'Book Now', new_booking_path( :user_id => @flat.user_id, :flat_id => @flat.id ), class: "btn btn-primary" %>
+      <%= link_to 'Book Now', new_booking_path(user_id: @flat.user_id, flat_id: @flat.id), class: "btn btn-primary" %>
       <%#= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
     </div>
   </div>
