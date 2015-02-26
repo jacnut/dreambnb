@@ -130,6 +130,12 @@
       <hr>
 
       <div class="row">
+        <div class="col-xs-12">
+          <div id="map" style="width: 100%; height: 600px;"></div>
+        </div>
+      </div>
+
+      <div class="row">
         <% @flat.flat_pics.each do |flat_pic| %>
           <div class="col-lg-4 col-md-6">
             <%= link_to flat_pic.picture.url(:large) do %>
@@ -145,3 +151,16 @@
     </div>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @marker.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>

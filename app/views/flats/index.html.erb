@@ -13,26 +13,44 @@
 
 
     <div class = "container">
-       <div class="row">
-      <% @flats.each do |flat| %>
+      <div class="row">
+        <% @flats.each do |flat| %>
+          <div class="col-xs-12 col-sm-4 text-center">
+            <h5><%= flat.name %></h5>
+            <%= image_tag flat.flat_pics.first.picture.url(:medium) %>
+            <hr>
+            <p class="text-muted small"><%= flat.city %></p>
+            <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p>
+            <p class="text-muted small"><%= flat.price %> €/night</p>
 
-      <div class="col-xs-12 col-sm-4 text-center">
-
-      <h5><%= flat.name %></h5>
-      <%= image_tag flat.flat_pics.first.picture.url(:medium) %>
-      <hr>
-      <p class="text-muted small"><%= flat.city %></p>
-      <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p>
-      <p class="text-muted small"><%= flat.price %> €/night</p>
-
-      <p class="text-muted small"><%= link_to 'Show', flat %></p>
-      </div>
-      <% end %>
+            <p class="text-muted small"><%= link_to 'Show', flat %></p>
+          <% end %>
+        </div>
       </div>
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8">
+          <div id="map" style="width: 100%; height: 600px;"></div>
+        </div>
+      </div>
+    </div>
 
 <br>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+    })
+  <% end %>
+<% end %>
 
 <%#= link_to 'New Flat', new_flat_path %>
 

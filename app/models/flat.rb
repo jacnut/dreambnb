@@ -11,7 +11,6 @@ class Flat < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-
   def user_bg
     "background-image: url(#{flat_pics.first.picture.url(:large)});"
   end
