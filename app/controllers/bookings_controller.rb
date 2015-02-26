@@ -27,7 +27,8 @@ class BookingsController < ApplicationController
     @booking.flat = Flat.find(params[:flat_id])
 
     if @booking.save
-      redirect_to @booking, notice: 'Dear ' + @booking.user.first_name + ', your booking at ' + @flat.first.name + ' was successfully created.'
+      redirect_to @booking, notice: 'Dear ' + @booking.user.email + ', your booking at ' + @booking.flat.name + ' was successfully created.'
+      UserMailer.booking(@booking.user, @booking.flat, @booking.start_date, @booking.end_date).deliver
     else
       render :new
     end

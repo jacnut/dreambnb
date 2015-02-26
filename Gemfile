@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "letter_opener", group: :development
+
 # gem 'bootstrap-datepicker-rails'
 
 gem 'bootstrap-sass'
