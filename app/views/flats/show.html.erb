@@ -1,6 +1,5 @@
 <div class="show-image-container">
-<div class="show-cover-img"><%= image_tag @flat.flat_pics.first.picture.url(:large) %>
-</div>
+  <div class="show-cover-img" style="<%= @flat.user_bg %>"><%#= image_tag @flat.flat_pics.first.picture.url(:large) %></div>
 </div>
 <div class = "container padded">
   <p class="notice"><%= notice %></p>
@@ -53,7 +52,11 @@
               </div>
               <div>
                 <small class = "text-muted">Host:</small>
-                <strong><%= @flat.user.email %></strong>
+                <strong>
+                  <%= link_to user_path(@flat.user) do %>
+                    <%= @flat.user.first_name %> <%= @flat.user.last_name %>
+                  <% end %>
+                </strong>
               </div>
               <div></div>
             </div>
@@ -91,7 +94,7 @@
                 <strong>Yes</strong>
               </div>
               <div>
-                <small class = "text-muted">Breakfas:</small>
+                <small class = "text-muted">Breakfast:</small>
                 <strong>No</strong>
               </div>
               <div>
@@ -108,7 +111,7 @@
         </div>
       </div>
 
-<hr>
+      <hr>
       <div class = "row">
         <div class = "col-md-3">
           Description
@@ -126,15 +129,19 @@
 
       <hr>
 
-      <div class = "row">
+      <div class="row">
         <% @flat.flat_pics.each do |flat_pic| %>
-        <%= image_tag flat_pic.picture.url(:medium) %>
+          <div class="col-lg-4 col-md-6">
+            <%= link_to flat_pic.picture.url(:large) do %>
+              <%= image_tag flat_pic.picture.url(:medium)%>
+            <% end %>
+          </div>
         <%end%>
       </div>
 
       <hr>
-      <%= link_to 'Book Now', new_booking_path( :user_id => @flat.user_id, :flat_id => @flat.id ) %> |
-      <%= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
+      <%= link_to 'Book Now', new_booking_path( :user_id => @flat.user_id, :flat_id => @flat.id ), class: "btn btn-primary" %>
+      <%#= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
     </div>
   </div>
 </div>
