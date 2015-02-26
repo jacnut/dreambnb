@@ -3,8 +3,17 @@
 
 <%= f.error_notification %>
     <h1>Book this flat</h1>
-      <p>Name of venue : <%= @flat.first.name %></p>
-      <p>Booking location : <%= @flat.first.city %></p>
+
+    <% @bookings = Booking.where(flat_id: @flat.id) %>
+    <% @bookings.each do |booking| %>
+                  <p><%= booking.flat.name %> |
+                 <%= booking.start_date %> |
+                 <%= booking.end_date %></p>
+              <% end %>
+              <%= @flat.id %></p>
+
+      <p>Name of venue : <%= @flat.name %></p>
+      <p>Booking location : <%= @flat.city %></p>
   <br>
 
 <div class="form-inputs">
@@ -15,7 +24,7 @@
 
 
   <%= f.input :user_id, input_html: { value: @current_user }, as: :hidden %>
-  <%= f.input :flat_id, input_html: { value: @flat.first.id }, as: :hidden %>
+  <%= f.input :flat_id, input_html: { value: @flat.id }, as: :hidden %>
 </div>
 <br>
 
