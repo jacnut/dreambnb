@@ -43,6 +43,8 @@
             </li>
             <!-- <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete' %></li> -->
             <li><%= link_to "Add flat", new_flat_path, {class: "btn"} %></li>
+            <li>&nbsp;</li>
+            <li><%= link_to 'List of All Flats', flats_path, {class: "btn"} %></li>
           <% else %>
           <!-- some modal code here, not used but for future purposes eventually ... -->
             <li><%= link_to 'Sign up', new_user_registration_path, "data-toggle" => "modal" %></li>

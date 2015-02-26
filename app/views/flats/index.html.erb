@@ -16,7 +16,7 @@
       <% @flats.each do |flat| %>
         <div class="col-xs-12 col-sm-6 text-center">
           <h5><%= flat.name %></h5>
-          <%= image_tag flat.flat_pics.first.picture.url(:medium), style: "max-width: 100%;" %>
+          <%= link_to (image_tag flat.flat_pics.first.picture.url(:medium), style: "max-width: 100%;"), flat  %>
           <hr>
           <p class="text-muted small"><%= flat.city %></p>
           <p class="text-muted small">Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</p>
