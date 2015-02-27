@@ -13,6 +13,29 @@ ActiveAdmin.register Flat do
   #   permitted << :other if resource.something?
   #   permitted
   # end
+
+  index do
+    selectable_column
+    column :id
+    column :user_id
+    column :name
+    column :address
+    actions
+  end
+
+  form do |f|
+    f.inputs "Flat Details" do
+      f.input :name
+      f.input :address
+      f.input :accomodates
+      f.input :description
+      f.input :price
+      f.input :has_AC
+      f.input :has_jacuzzi
+    end
+    f.actions
+  end
+
   permit_params :user_id, :name, :address, :description, :accomodates
 
 end
