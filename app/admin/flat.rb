@@ -23,6 +23,19 @@ ActiveAdmin.register Flat do
     actions
   end
 
+  form do |f|
+    f.inputs "Flat Details" do
+      f.input :name
+      f.input :address
+      f.input :accomodates
+      f.input :description
+      f.input :price
+      f.input :has_AC
+      f.input :has_jacuzzi
+    end
+    f.actions
+  end
+
   permit_params :user_id, :name, :address, :description, :accomodates
 
 end
