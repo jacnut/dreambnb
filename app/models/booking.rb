@@ -28,4 +28,9 @@ class Booking < ActiveRecord::Base
      end
     end
 
+    def self.start_date_after_end_date?(start_date, end_date)
+    start_date > end_date
+    end
+
+
 end
