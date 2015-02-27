@@ -1,41 +1,40 @@
+
+  <div class="map-wrapper">
+    <div id="map_many" class="list-map"></div>
+  </div>
+
 <div class="container">
   <div class = "row">
-    <div class="col-xs-11 col-xs-offset-1 text-center">
-      <div class = "container">
-        <div class="row">
-          <div class="col-sm-7">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <% @flats.each do |flat| %>
-            <div class="col-xs-12 col-sm-6 text-center">
-              <%= link_to (image_tag flat.flat_pics.first.picture.url(:medium), style: "max-width: 100%;"), flat  %>
-              <p><%= link_to flat.name, flat %>
-              <br>
-              <span class = "small text-muted"><%= flat.city %> ·
-              Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</span></p>
-            </div>
-            <div class="full-padded"></div>
-            <% end %>
-          </div>
-          <div class="col-sm-5">
-            <div class = "pull-right" id="map_many" style="width: 100%; height: 100vh; "></div>
-          </div>
+    <div class="col-sm-7">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <% @flats.each do |flat| %>
+        <div class="col-xs-12 col-sm-6 text-center full-padded">
+          <%= link_to (image_tag flat.flat_pics.first.picture.url(:medium), style: "max-width: 100%;"), flat  %>
+          <p>
+            <%= link_to flat.name, flat %>
+            <br>
+            <span class = "small text-muted"><%= flat.city %> · Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</span>
+          </p>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
+
 <br>
+
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$(document).on( 'ready', function() {
-handler = Gmaps.build('Google');
-handler.buildMap({ internal: { id: 'map_many' } }, function(){
-markers = handler.addMarkers(<%= raw @markers.to_json %>);
-handler.bounds.extendWith(markers);
-handler.fitMapToBounds();
-});
-});
-<% end %>
+  <%= javascript_tag do %>
+    $(document).on( 'ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map_many' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    });
+  <% end %>
 <% end %>
 <%#= link_to 'New Flat', new_flat_path %>
