@@ -1,13 +1,13 @@
-
 <div class = "container padded">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
       <div class = "row">
         <h1>Editing Flat</h1>
         <%= render 'form_edit' %>
-
-        <%= link_to 'Show', @flat, {class: "btn btn-primary"} %>
-        <%= link_to 'Back', flats_path, {class: "btn btn-primary"} %>
+        <div class="btn-group">
+          <%= link_to 'Show', @flat, {class: "btn btn-primary"} %>
+          <%= link_to 'My Listings', user_path(current_user), {class: "btn btn-primary"} %>
+        </div>
       </div>
     </div>
   </div>
