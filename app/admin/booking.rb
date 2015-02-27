@@ -1,4 +1,4 @@
-ActiveAdmin.register Flat do
+ActiveAdmin.register Booking do
 
 
   # See permitted parameters documentation:
@@ -14,15 +14,5 @@ ActiveAdmin.register Flat do
   #   permitted
   # end
 
-  index do
-    selectable_column
-    column :id
-    column :user_id
-    column :name
-    column :address
-    actions
-  end
-
-  permit_params :user_id, :name, :address, :description, :accomodates
 
 end
