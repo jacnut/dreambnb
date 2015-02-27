@@ -5,25 +5,21 @@
 
 <div class="container">
   <div class = "row">
-          <div class="col-sm-7">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+    <div class="col-sm-7">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-            <% @flats.each do |flat| %>
-              <div class="col-xs-12 col-sm-6 text-center full-padded">
-                <%= link_to (image_tag flat.flat_pics.first.picture.url(:medium), style: "max-width: 100%;"), flat  %>
-                <p>
-                  <%= link_to flat.name, flat %>
-                  <br>
-                  <span class = "small text-muted"><%= flat.city %> · Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</span>
-                </p>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="col-sm-5">
-            <div id="map_manyaa" class="list-map"></div>
-          </div>
+      <% @flats.each do |flat| %>
+        <div class="col-xs-12 col-sm-6 text-center full-padded">
+          <%= link_to (image_tag flat.flat_pics.first.picture.url(:medium), style: "max-width: 100%;"), flat  %>
+          <p>
+            <%= link_to flat.name, flat %>
+            <br>
+            <span class = "small text-muted"><%= flat.city %> · Beds : <%= flat.accomodates %> · <%= flat.price %> €/night</span>
+          </p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
