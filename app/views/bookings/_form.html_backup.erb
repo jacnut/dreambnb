@@ -1,0 +1,32 @@
+<%= javascript_include_tag "bookings" %>
+<%= simple_form_for( :booking, :html => {:class => 'form-vertical' }) do |f| %>
+
+<%= f.error_notification %>
+    <h1>Book this flat</h1>
+      <p>Name of venue : <%=  %></p>
+      <p>Booking location : <%=  %></p>
+  <br>
+
+  <div class="form-inputs">
+  <!-- took id name with inspect element and changed the js -->
+    <div id:"start_date" class="input-append date datepicker" data-date-format="dd-mm-yyyy"></div>
+    <div id:"end_date" class="input-append date datepicker" data-date-format="dd-mm-yyyy"></div>
+
+  <!-- end of js calendar -->
+  </div>
+
+<br>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+
+<% end %>
+
+<br>
+
+<div class = "padded"></div>
+
+<script type="text/javascript">
+  $('.datepicker').datepicker();
+</script>
