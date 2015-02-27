@@ -37,7 +37,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Bookings" do
           ul do
             Booking.last(5).map do |booking|
-              li link_to(booking.user.email, admin_booking_path(booking))
+              li link_to(booking.flat.name, admin_booking_path(booking))
             end
           end
         end
