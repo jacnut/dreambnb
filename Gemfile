@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+gem 'formtastic', '~> 3.0'
+gem 'formtastic-bootstrap'
+
 gem 'active_skin'
 
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
@@ -26,7 +29,7 @@ gem 'puma',           group: :production
 
 gem 'figaro'
 gem 'aws-sdk', '< 2.0'
-gem 'paperclip'
+gem 'paperclip', '4.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

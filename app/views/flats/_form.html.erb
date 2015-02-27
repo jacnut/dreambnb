@@ -1,5 +1,6 @@
-<%= simple_form_for(@flat) do |f| %>
-  <%= f.error_notification %>
+<%= semantic_form_for @flat do |f| %>
+<%= f.inputs do %>
+  <%#= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
@@ -8,32 +9,21 @@
     <%= f.input :city %>
     <%= f.input :accomodates %>
 
-    <div class="form-inline">
-      <div class="form-group">
-        <label class="sr-only">Amount (in Euros)</label>
-        <div class="input-group">
-          <div class="input-group-addon">€</div>
-        <div><%= f.input :price %></div>
-        </div>
-      </div>
-    </div>
 
-    <%= f.input :has_AC %>
-    <%= f.input :has_jacuzzi %>
-
+    <%= f.input :price, prepend: '€', hint: "Example: 35" %>
 
 <!-- This integrates the create flat_pic form into the flat create form -->
-    <%= f.simple_fields_for :flat_pics do |ff| %>
-      <div class="form-inputs">
+    <%= f.semantic_fields_for :flat_pics do |ff| %>
         <%= ff.input :picture, as: :file %>
-      </div>
     <% end %>
 <!-- Also modified the flat model & controller new and params -->
   </div>
-  <div class="form-actions btn-group">
-    <%= f.button :submit, {class: "btn btn-primary"} %>
+
+    <div class= "btn btn-primary">
+    <%= f.button :submit, as: :button, class: "btn btn-primary" %>
+    </div>
     <%= link_to 'Cancel', user_path(current_user), {class: "btn btn-primary"} %>
-  </div>
   <br>
+  <% end %>
 <% end %>
 

@@ -6,6 +6,6 @@ class FlatPic < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   belongs_to :flat
-  validates :picture, presence: true
+  #validates :picture, presence: true
 
 end
