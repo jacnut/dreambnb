@@ -38,7 +38,6 @@
 
       <% if @user == current_user %>
 
-
         <%= link_to "Add a flat", new_flat_path, {class: "btn btn-primary"} %>
         <br>
         <br>
@@ -72,16 +71,11 @@
           <% end %>
         </table>
 
-<<<<<<< HEAD
-      <div class="btn-group" role="group">
-      <%= link_to "Edit profile", edit_user_path, {class: "btn btn-primary"} %>
-      <%= link_to "Edit my account settings", edit_user_registration_path(@user), {class: "btn btn-primary"} %>
-=======
-        <%= link_to "Edit profile", edit_user_path, {class: "btn btn-primary"} %>
-        <%= link_to "Edit my account settings", edit_user_registration_path(@user), {class: "btn btn-primary"} %>
+        <div class="btn-group" role="group">
+          <%= link_to "Edit profile", edit_user_path, {class: "btn btn-primary"} %>
+          <%= link_to "Edit my account settings", edit_user_registration_path(@user), {class: "btn btn-primary"} %>
+        </div>
       <% end %>
->>>>>>> master
-    </div>
     </div>
   </div>
 </div>
