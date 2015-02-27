@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
+
 gem "gmaps4rails"
 
 gem "rails-assets-underscore"
-
-gem 'seed_dump'
 
 gem "geocoder"
 

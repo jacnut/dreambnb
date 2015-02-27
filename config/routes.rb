@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   get '/search', to: 'flats#search'
 
   resources :bookings

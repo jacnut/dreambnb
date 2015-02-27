@@ -10,10 +10,12 @@
       <table class="table">
         <tr>
         <th>Flat</th>
-        <th>City</th>
-        <th class="text-center">Edit</th>
-        <th class="text-center">Destroy</th>
-        <th class="text-center">Edit Pics</th>
+        <th>Address</th>
+        <% if @user == current_user %>
+          <th class="text-center">Edit</th>
+          <th class="text-center">Destroy</th>
+          <th class="text-center">Edit Pics</th>
+        <% end %>
           </tr>
         <% @user.flats.each do |flat| %>
           <tr>
@@ -22,46 +24,63 @@
             <% end %></td>
             <td>
               <%= link_to flat_path(flat) do %>
-                <%= flat.city %>
+                <%= flat.address %>
               <% end %>
             </td>
-            <td class="text-center"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_flat_path(flat) %></td>
-            <td class="text-center"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <td class="text-center"><%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(flat) %></td>
+            <% if @user == current_user %>
+              <td class="text-center"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_flat_path(flat) %></td>
+              <td class="text-center"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td class="text-center"><%= link_to '<i class="fa fa-camera"></i>'.html_safe, flat_flat_pics_path(flat) %></td>
+            <% end %>
           </tr>
         <% end %>
       </table>
 
-      <%= link_to "Add a flat", new_flat_path, {class: "btn btn-primary"} %>
-      <br>
-      <br>
+      <% if @user == current_user %>
 
-      <h2>My Trips</h2>
 
-      <table class="table">
-        <tr>
-         <th>Flat</th>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Show</th>
-        <th>Edit</th>
-        <th>Delete</th>
-          </tr>
-          <% @user.bookings.each do |booking| %>
+        <%= link_to "Add a flat", new_flat_path, {class: "btn btn-primary"} %>
+        <br>
+        <br>
+
+        <h2>My Trips</h2>
+
+        <table class="table">
           <tr>
-            <td><%= booking.flat.name %></td>
-            <td><%= booking.start_date %></td>
-            <td><%= booking.end_date %></td>
-            <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, booking %></td>
-            <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_booking_path(booking) %></td>
-            <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </table>
+            <th>Flat</th>
+            <th>Owner</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Show</th>
+            </tr>
+            <% @user.bookings.each do |booking| %>
+            <tr>
+              <td>
+                <%= link_to flat_path(booking.flat) do%>
+                  <%= booking.flat.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to user_path(booking.flat.user) do%>
+                  <%= booking.flat.user.name %>
+                <% end %>
+              </td>
+              <td><%= booking.start_date %></td>
+              <td><%= booking.end_date %></td>
+              <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, booking %></td>
+            </tr>
+          <% end %>
+        </table>
 
+<<<<<<< HEAD
       <div class="btn-group" role="group">
       <%= link_to "Edit profile", edit_user_path, {class: "btn btn-primary"} %>
       <%= link_to "Edit my account settings", edit_user_registration_path(@user), {class: "btn btn-primary"} %>
+=======
+        <%= link_to "Edit profile", edit_user_path, {class: "btn btn-primary"} %>
+        <%= link_to "Edit my account settings", edit_user_registration_path(@user), {class: "btn btn-primary"} %>
+      <% end %>
+>>>>>>> master
     </div>
     </div>
   </div>
