@@ -27,7 +27,6 @@
                 <%= flat.address %>
               <% end %>
             </td>
-
             <% if @user == current_user %>
               <td class="text-center"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_flat_path(flat) %></td>
               <td class="text-center"><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -45,21 +44,27 @@
 
         <table class="table">
           <tr>
-           <th>Flat</th>
-          <th>Start date</th>
-          <th>End date</th>
-          <th>Show</th>
-          <th>Edit</th>
-          <th>Delete</th>
+            <th>Flat</th>
+            <th>Owner</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Show</th>
             </tr>
             <% @user.bookings.each do |booking| %>
             <tr>
-              <td><%= booking.flat.name %></td>
+              <td>
+                <%= link_to flat_path(booking.flat) do%>
+                  <%= booking.flat.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to user_path(booking.flat.user) do%>
+                  <%= booking.flat.user.name %>
+                <% end %>
+              </td>
               <td><%= booking.start_date %></td>
               <td><%= booking.end_date %></td>
               <td><%= link_to '<i class="fa fa-eye"></i>'.html_safe, booking %></td>
-              <td><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_booking_path(booking) %></td>
-              <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </table>
