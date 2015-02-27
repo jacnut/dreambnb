@@ -51,9 +51,9 @@ $(document).ready(function(){
 
       if ($(window).width() > 768) {
         if ($(window).scrollTop() > 65) {
-          $('.map-wrapper').css({'position': 'fixed', 'margin-top': '-66px', 'height': 'calc(100vh + 65px)' });
+          $('.map-wrapper').css({'position': 'fixed', 'margin-top': '-66px' });
         } else {
-          $('.map-wrapper').css({'position': 'absolute', 'margin-top': '0', 'height': 'calc(100vh - 65px)' });
+          $('.map-wrapper').css({'position': 'absolute', 'margin-top': '0' });
         }
       } else {
         $('.map-wrapper').css({'position': 'relative', 'margin-top': '0', 'height': '300px', 'width': '100%' });
