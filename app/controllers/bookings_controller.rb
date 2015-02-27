@@ -31,6 +31,8 @@ class BookingsController < ApplicationController
 
     if Booking.booked?(booking_params[:flat_id], start_date, end_date)
       redirect_to new_booking_path(flat_id: booking_params[:flat_id]), notice: 'Sorry your venue is already booked at these dates'
+    elsif Booking.start_date_after_end_date?(start_date, end_date)
+      redirect_to new_booking_path(flat_id: booking_params[:flat_id]), notice: 'No time-machines, End date must be after Start date'
     elsif @booking.save
       redirect_to @booking, notice: 'Dear ' + @booking.user.email + ', your booking at ' + @booking.flat.name + ' was successfully created.'
       UserMailer.booking(@booking.user, @booking.flat, @booking.start_date, @booking.end_date).deliver
