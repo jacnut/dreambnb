@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     #Need to convert the two dates into Ruby dates
     start_date = DateTime.strptime(booking_params[:start_date], '%d/%m/%Y')
     end_date = DateTime.strptime(booking_params[:end_date], '%d/%m/%Y')
-    @booking = Booking.new(start_date:start_date, end_date:end_date, user_id:booking_params[:user_id], flat_id:booking_params[:flat_id])
+    @booking = Booking.new(start_date:start_date, end_date:end_date, user_id:current_user.id, flat_id:booking_params[:flat_id])
     @booking.user = current_user
     @booking.flat = Flat.find(booking_params[:flat_id])
 
@@ -62,8 +62,8 @@ class BookingsController < ApplicationController
     end
 
     def set_user_flat
-      @user = User.where(id: params[:user_id])
-      @flat = Flat.where(id: params[:flat_id])
+      @user = current_user
+      @flat = Flat.where(id: params[:flat_id]).first
     end
 
     # Only allow a trusted parameter "white list" through.
