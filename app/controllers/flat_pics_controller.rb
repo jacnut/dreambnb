@@ -28,7 +28,7 @@ class FlatPicsController < ApplicationController
     @flat_pic = @flat.flat_pics.build(flat_pic_params)
 
     if @flat_pic.save
-      redirect_to flat_path(@flat), notice: 'Your image was successfully created.'
+      redirect_to flat_flat_pics_path(@flat), notice: 'Your image was successfully created.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class FlatPicsController < ApplicationController
   # PATCH/PUT /flat_pics/1
   def update
     if @flat_pic.update(flat_pic_params)
-      redirect_to flat_path(@flat), notice: 'Your image was successfully updated.'
+      redirect_to flat_flat_pics_path(@flat), notice: 'Your image was successfully updated.'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class FlatPicsController < ApplicationController
   # DELETE /flat_pics/1
   def destroy
     @flat_pic.destroy
-    redirect_to flat_path(@flat), notice: 'Your image was successfully destroyed.'
+    redirect_to flat_flat_pics_path(@flat), notice: 'Your image was successfully destroyed.'
   end
 
   private

@@ -2,11 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :description %>
     <%= f.input :picture, as: :file %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+<div class="btn-group" role="group">
+  <div class="form-actions btn-group">
+    <%= f.button :submit, "Upload Image", {class: "btn btn-primary"} %>
+    <%= link_to 'My Listings', user_path(current_user), {class: "btn btn-primary"}  %>
+    <%= link_to 'This Venue', flat_path(@flat), {class: "btn btn-primary"}  %>
+
+  </div>
+
   </div>
 <% end %>
