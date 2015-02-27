@@ -30,8 +30,9 @@
     <% end %>
 <!-- Also modified the flat model & controller new and params -->
   </div>
-  <div class="form-actions">
+  <div class="form-actions btn-group">
     <%= f.button :submit, {class: "btn btn-primary"} %>
+    <%= link_to 'Cancel', user_path(current_user), {class: "btn btn-primary"} %>
   </div>
   <br>
 <% end %>

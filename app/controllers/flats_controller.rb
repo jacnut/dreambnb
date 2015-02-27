@@ -63,7 +63,7 @@ class FlatsController < ApplicationController
   # PATCH/PUT /flats/1
   def update
     if @flat.update(flat_params)
-      redirect_to @flat, notice: 'Flat was successfully updated.'
+      redirect_to user_path(current_user), notice: 'Flat was successfully updated.'
     else
       render :edit
     end
