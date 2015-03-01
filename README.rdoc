@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![alt text](http://dreambnb.herokuapp.com/assets/dreambnb-logo-1ac4ac8051f758eaa6f4e1ef1954b057.svg "DreamBnB")
 
-Things you may want to cover:
+DreamBnB is an Airbnb clone, made as an exercise during [LeWagon](http://www.lewagon.org/ "Le Wagon") coding school in Brussels (2015). The result is visible here: [http://dreambnb.herokuapp.com/](http://dreambnb.herokuapp.com/ "DreamBnB")
 
-* Ruby version
+## Contributors
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* [Fabien Loup](https://github.com/NoryDev "NoryDev")
+* [Jacques De Liedekerke](https://github.com/jacnut "jacnut")
+* [Renaat De Vos](https://github.com/taaneredsov "taaneredsov")
