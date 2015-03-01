@@ -1,4 +1,4 @@
-== README
+# README
 
 ![alt text](http://dreambnb.herokuapp.com/assets/dreambnb-logo-1ac4ac8051f758eaa6f4e1ef1954b057.svg "DreamBnB")
 
